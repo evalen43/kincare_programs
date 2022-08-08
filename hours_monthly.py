@@ -3,12 +3,9 @@ from weakref import ReferenceType
 #import openpyxl
 import pandas as pd
 
-files=('Z:\shared\WEEK FILES\Desmond Silkwood\SuperBill_Desmond_July-August.xlsm', \
-    'Z:\shared\WEEK FILES\Jaivardhan Sankhala\SuperBill_Jaivardhan_July-August.xlsm', \
-    'Z:\shared\WEEK FILES\James Frodsham\SuperBill_James_July-August.xlsm', \
-    'Z:\shared\WEEK FILES\Lucas Abiy\SuperBill_Lucas_July-August.xlsm', \
-    'Z:\shared\WEEK FILES\Maria Orlando\SuperBill_Maria_July-August.xlsm', \
-    'Z:\shared\WEEK FILES\Srimayee Yada\SuperBill_Srimayee_July-August.xlsm' )
+txt_files=open('clients_july-august.txt',"r")
+files=txt_files.read().splitlines()
+#print(files)
 provider=[]
 clients=[]
 df=pd.read_excel(files[0],sheet_name='summary',header=None,usecols='A:N')
