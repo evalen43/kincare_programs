@@ -22,6 +22,8 @@ for file in files:
     df=pd.read_excel(file,sheet_name='summary',header=None,usecols='A:N')
     client=df.loc[14:14].values.flatten().tolist()
     clients.append(client)
+df2=pd.DataFrame(clients) 
+print (df2)   
 # for client in clients:    
 #     print(client)
 for j in range(2,14):
