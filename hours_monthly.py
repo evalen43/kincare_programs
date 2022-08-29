@@ -2,9 +2,13 @@ from optparse import Values
 from weakref import ReferenceType
 #import openpyxl
 import pandas as pd
-
-per1=4
-per2=14
+num=input("Input 1 or 2 for Period1 or Period2: ")
+if num == 1:
+    per1=4
+    print("You selected a Summary for Period1")
+else: 
+    per1=14
+    print("You selected a Summary for Period2")
 
 txt_files=open('clients_august.txt',"r")
 files=txt_files.read().splitlines()
