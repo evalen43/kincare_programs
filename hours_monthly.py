@@ -2,8 +2,10 @@ from optparse import Values
 from weakref import ReferenceType
 #import openpyxl
 import pandas as pd
+import numpy as np
 num=input("Input 1 or 2 for Period1 or Period2: ")
-if num == 1:
+print(num)
+if num == '1':
     per1=4
     print("You selected a Summary for Period1")
 else: 
@@ -25,10 +27,12 @@ for file in files:
     client=df.loc[per1:per1].values.flatten().tolist()
     clients.append(client)
 df2=pd.DataFrame(data=clients,columns=provider) 
-
-df3=df2.dropna(how='all',axis=1,inplace=False) 
-print (df3)
-hours_provider=df3.sum(axis=0,numeric_only=True)
+#df2 = df2.loc[:, df2.all()]
+#df2 = df2.replace({0: pd.NA})
+#print(df2)
+#df3=df2.dropna(how='all',axis=1,inplace=False) 
+print (df2)
+hours_provider=df2.sum(axis=0,numeric_only=True)
 #hours_clients=df2.sum(axis=1,numeric_only=True)
 pd.options.display.float_format='{:.2f}'.format
 #print(provider)
