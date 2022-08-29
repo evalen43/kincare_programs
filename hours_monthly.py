@@ -25,9 +25,10 @@ for file in files:
     client=df.loc[per1:per1].values.flatten().tolist()
     clients.append(client)
 df2=pd.DataFrame(data=clients,columns=provider) 
-print (df2)
-# df3=df2.drop('     ') 
-hours_provider=df2.sum(axis=0,numeric_only=True)
+
+df3=df2.dropna(how='all',axis=1,inplace=False) 
+print (df3)
+hours_provider=df3.sum(axis=0,numeric_only=True)
 #hours_clients=df2.sum(axis=1,numeric_only=True)
 pd.options.display.float_format='{:.2f}'.format
 #print(provider)
