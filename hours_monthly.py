@@ -4,7 +4,7 @@ from weakref import ReferenceType
 import pandas as pd
 import numpy as np
 num=input("Input 1 or 2 for Period1 or Period2: ")
-print(num)
+#print(num)
 if num == '1':
     period=4
     print("You selected a Summary for Period1")
@@ -28,14 +28,20 @@ for file in files:
     clients.append(client)
 
 df2=pd.DataFrame(data=clients,columns=provider) 
-
+pd.options.display.float_format = '{:.2f}'.format
+#print(clients)
+#print(len(clients),len(provider))
 #print (df2)
 hours_provider=df2.sum(axis=0,numeric_only=True)
 hours_clients=df2.sum(axis=1,numeric_only=True)
-pd.options.display.float_format='{:.2f}'.format
-print(hours_clients)
 
-
+#print(hours_clients)
+print("Summary per Client")
+for i in range(0,len(clients)):
+    #print((clients[i][0]+"\t\t"+f"{clients[i][len(provider)-1]:.2f}").expandtabs(15))
+    print('{0:25s}  {1:10.2f}'.format(
+        clients[i][0], clients[i][len(provider)-1]))
+print("Summary per Provider")
 for j in range(2, len(provider)):
     hours=0.
     for i in range(len(clients)):
