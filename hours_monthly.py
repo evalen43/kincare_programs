@@ -29,19 +29,18 @@ for file in files:
 
 df2=pd.DataFrame(data=clients,columns=provider) 
 pd.options.display.float_format = '{:.2f}'.format
-#print(clients)
-#print(len(clients),len(provider))
+
 #print (df2)
 hours_provider=df2.sum(axis=0,numeric_only=True)
 hours_clients=df2.sum(axis=1,numeric_only=True)
+total_clients=df2['Subtotal'].sum()
 
-#print(hours_clients)
-print("Summary per Client")
+print("\nSummary per Client")
 for i in range(0,len(clients)):
-    #print((clients[i][0]+"\t\t"+f"{clients[i][len(provider)-1]:.2f}").expandtabs(15))
     print('{0:25s}  {1:10.2f}'.format(
         clients[i][0], clients[i][len(provider)-1]))
-print("Summary per Provider")
+print('{0:25s} {1:10.2f}'.format("Total Clients",total_clients))
+print("\nSummary per Provider")
 for j in range(2, len(provider)):
     hours=0.
     for i in range(len(clients)):
