@@ -26,7 +26,7 @@ for file in files:
     df=pd.read_excel(file,sheet_name='summary',header=None,usecols='A:N')
     client=df.loc[period:period].values.flatten().tolist()
     clients.append(client)
-
+files.close()
 df2=pd.DataFrame(data=clients,columns=provider) 
 pd.options.display.float_format = '{:.2f}'.format
 
